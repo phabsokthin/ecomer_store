@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
 import { CiShoppingBasket } from 'react-icons/ci'
 import { BsEye } from 'react-icons/bs'
@@ -9,14 +8,18 @@ import toast from 'react-hot-toast';
 
 const notify = () => toast.success('Add to cart!')
 
-const OneImage = ({ oneImage }) => {
+const TvCart = ({tvItem}) => {
 
-    const { addTocart } = useContext(CartContext)
 
-    const { id, image, title, price, discount } = oneImage
+    const {addTocart} = useContext(CartContext)
+
+    const {id, title, image, price, amount, discount} = tvItem
+
 
     return (
         <>
+
+            
 
             <div className='w-full h-full border p-2'>
                 <div className='relative group overflow-hidden'>
@@ -36,7 +39,7 @@ const OneImage = ({ oneImage }) => {
                         <AiOutlineStar />
                     </div>
                     <div onClick={notify} className='absolute mt-5 top-0  -right-40 group-hover:right-10 transition-all duration-300 ease-in-out flex flex-col space-y-2  bg-white/90 shadow px-3 h-20 '>
-                        <button onClick={() => addTocart(oneImage, id)} className='mt-4'>
+                        <button  onClick={()=>addTocart(tvItem, id)} className='mt-4'>
                             <CiShoppingBasket className='text-[25px] hover:text-red-500' />
                         </button>
                         <button className='ml-1'>
@@ -47,9 +50,8 @@ const OneImage = ({ oneImage }) => {
                 </div>
             </div>
 
-
         </>
     )
 }
 
-export default OneImage
+export default TvCart

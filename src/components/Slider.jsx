@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { HiOutlineArrowLongLeft, HiArrowLongRight } from 'react-icons/hi2'
 import { BsShopWindow } from 'react-icons/bs'
 import { BiHeadphone } from 'react-icons/bi'
+import {FaChevronRight, FaChevronLeft} from 'react-icons/fa'
 
 // Import Swiper styles
 import 'swiper/css';
@@ -17,7 +18,7 @@ import slider1 from './SlideCard/slide-1.png'
 import slider2 from './SlideCard/headphone_blue.png'
 import slider3 from './SlideCard/airpods.png'
 import slider4 from './SlideCard/watch.png'
-import { fetchElectronic, fetchImage, fetchImageShop, fetchOne } from '../json/Json';
+import { fetchElectronic, fetchImage, fetchImageShop, fetchOne, fetchOne1, fetchOne2, fetchOne3, fetchOne4, fetchOne5, fetchOne6, fetchOne7, fetchOne8 } from '../json/Json';
 import CardItem from './CardItem';
 import Item from './Item';
 import Category1 from './top/category-1.png'
@@ -25,6 +26,7 @@ import Category2 from './top/category-2.png'
 import Category3 from './top/category-3.png'
 import Electronic from './Electronic';
 import OneImage from './OneImage';
+import TvCart from './TvCart';
 
 
 const Slider = () => {
@@ -48,10 +50,10 @@ const Slider = () => {
                 onSwiper={(swiper) => console.log(swiper)}
                 onSlideChange={() => console.log('slide change')}
 
-                className='relative group'
+                className='relative group mt-[]'
 
             >
-                <SwiperSlide className='cursor-pointer'>
+                <SwiperSlide className='cursor-pointer mt-[100px]'>
                     <div className='flex justify-center items-center font-monster'>
                         <div className='w-[100%] md:w-[50%] lg:w-[40%] p-4 space-y-3 mt-[-3rem]'>
                             <p className='text-sm text-gray-500'>HOTPRODUCT</p>
@@ -64,7 +66,7 @@ const Slider = () => {
                         </div>
                     </div>
                 </SwiperSlide>
-                <SwiperSlide className='cursor-pointer'>
+                <SwiperSlide className='cursor-pointer mt-[100px]'>
                     <div className='flex justify-center items-center font-monster'>
                         <div className='w-[100%] md:w-[40%] p-4 space-y-3 mt-[-3rem]'>
                             <p className='text-sm text-gray-500'>HOTPRODUCT</p>
@@ -77,7 +79,7 @@ const Slider = () => {
                         </div>
                     </div>
                 </SwiperSlide>
-                <SwiperSlide className='cursor-pointer'>
+                <SwiperSlide className='cursor-pointer mt-[100px]'>
                     <div className='flex justify-center items-center font-monster'>
                         <div className='w-[100%] md:w-[40%] p-4 space-y-3 mt-[-3rem]'>
                             <p className='text-sm text-gray-500'>HOTPRODUCT</p>
@@ -90,10 +92,10 @@ const Slider = () => {
                         </div>
                     </div>
                 </SwiperSlide>
-                <SwiperSlide className='cursor-pointer'>
+                <SwiperSlide className='cursor-pointer mt-[100px]'>
                     <div className='flex justify-center items-center font-monster'>
                         <div className='w-[100%] md:w-[50%] lg:w-[40%] p-4 space-y-3 mt-[-3rem]'>
-                            <p className='text-sm text-gray-500'>HOTPRODUCT</p>
+                            <p className='text-sm text-gray-500 mt-5'>HOTPRODUCT</p>
                             <h1 className=' text-2xl md:text-5xl '>BLACK WATCH BEST TEACHNOLOGY FORM USA.</h1>
 
                             <button className='bg-orange-400 text-white cursor-pointer ease-in-out duration-300 hover:bg-orange-500 px-3 p-2'>Check Out</button>
@@ -173,12 +175,43 @@ const Slider = () => {
                     </div>
                 </div>
 
+                <div className='my-10 text-2xl flex gap-x-2 font-bold'>
+                    <BiHeadphone className='text-3xl' />
+                    <p>SPACIAL CATEGORY</p>
+                </div>
 
                 <Swiper
+                    autoplay={{ 
+                        delay: 3000,
+                        disableOnInteraction: false
+                     }}
                     spaceBetween={50}
-                    slidesPerView={4}
-                    onSlideChange={() => console.log('slide change')}
-                    onSwiper={(swiper) => console.log(swiper)}
+                    slidesPerView={2}
+                    navigation={{
+                        nextEl: ".button-next-slide",
+                        prevEl: ".button-prev-slide"
+                    }}
+                    modules={[Navigation, Autoplay]}
+                    breakpoints={{
+                        640: {
+                          slidesPerView: 2,
+                          spaceBetween: 20,
+                        },
+                        768: {
+                          slidesPerView: 4,
+                          spaceBetween: 40,
+                        },
+                        1024: {
+                          slidesPerView: 5,
+                          spaceBetween: 50,
+                        },
+                        1220: {
+                            slidesPerView: 6,
+                            spaceBetween: 50,
+                          },
+                      }}
+
+                      className='relative'
                 >
                     <SwiperSlide>
 
@@ -191,7 +224,14 @@ const Slider = () => {
                     </SwiperSlide>
                     <SwiperSlide>
 
-                        {fetchOne.map((oneImage) => {
+                       {fetchOne1.map((tvItem) => {
+                            return <TvCart tvItem={tvItem} key={tvItem.id}/>
+                       })}
+
+                    </SwiperSlide>
+                    <SwiperSlide>
+
+                        {fetchOne2.map((oneImage) => {
                             return (
                                 <OneImage oneImage={oneImage} key={oneImage.id} />
                             )
@@ -200,7 +240,7 @@ const Slider = () => {
                     </SwiperSlide>
                     <SwiperSlide>
 
-                        {fetchOne.map((oneImage) => {
+                        {fetchOne3.map((oneImage) => {
                             return (
                                 <OneImage oneImage={oneImage} key={oneImage.id} />
                             )
@@ -209,7 +249,7 @@ const Slider = () => {
                     </SwiperSlide>
                     <SwiperSlide>
 
-                        {fetchOne.map((oneImage) => {
+                        {fetchOne4.map((oneImage) => {
                             return (
                                 <OneImage oneImage={oneImage} key={oneImage.id} />
                             )
@@ -218,14 +258,50 @@ const Slider = () => {
                     </SwiperSlide>
                     <SwiperSlide>
 
-                        {fetchOne.map((oneImage) => {
+                        {fetchOne5.map((oneImage) => {
                             return (
                                 <OneImage oneImage={oneImage} key={oneImage.id} />
                             )
                         })}
 
                     </SwiperSlide>
-                    ...
+                    <SwiperSlide>
+
+                        {fetchOne6.map((oneImage) => {
+                            return (
+                                <OneImage oneImage={oneImage} key={oneImage.id} />
+                            )
+                        })}
+
+                    </SwiperSlide>
+                    <SwiperSlide>
+
+                        {fetchOne7.map((oneImage) => {
+                            return (
+                                <OneImage oneImage={oneImage} key={oneImage.id} />
+                            )
+                        })}
+
+                    </SwiperSlide>
+                    <SwiperSlide>
+
+                        {fetchOne8.map((oneImage) => {
+                            return (
+                                <OneImage oneImage={oneImage} key={oneImage.id} />
+                            )
+                        })}
+
+                    </SwiperSlide>
+                    
+
+
+                    <div className='button-prev-slide absolute top-[50%] flex justify-center items-center hover:bg-gray-200  rounded-full bg-white shadow h-8 text-sm cursor-pointer transtion-all duration-300 ease-in-out w-8 z-10'>
+                        <FaChevronLeft/>
+                    </div>
+                    <div className='button-next-slide absolute top-[50%] right-0 flex justify-center items-center hover:bg-gray-200  rounded-full bg-white shadow h-8 text-sm cursor-pointer transtion-all duration-300 ease-in-out w-8 z-10'>
+                        <FaChevronRight/>
+                    </div>
+
                 </Swiper>
 
             </div>

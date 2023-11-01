@@ -12,20 +12,26 @@ const Navigation = () => {
 
     const [nav, setNav] = useState(false)
 
-
     const [mobile, setMobile] = useState(false)
 
     //use context 
-    
+
 
     const { isOpen, setIsOpen } = useContext(SideBarContext)
 
     //cart context item increase amount 0
 
-    const {itemAmount} = useContext(CartContext)
+    const { itemAmount } = useContext(CartContext)
 
     //for navbar scroll
-    
+
+    //for modal user
+
+    const [login, setLogin] = useState(false)
+    const closeLogin = () => {
+        setLogin(false)
+    }
+
     useEffect(() => {
         window.addEventListener('scroll', () => {
             return window.scrollY > 30 ? setNav(true) : setNav(false)
@@ -36,15 +42,15 @@ const Navigation = () => {
     return (
         <>
 
-            <div className={`${nav ? 'shadow-md bg-white': 'shadow bg-white'} z-10 fixed w-full py-5 font-monster`}>
+            <div className={`${nav ? 'shadow-md bg-white' : 'shadow bg-white'} z-10 fixed w-full py-5 font-monster`}>
                 <div className='container mx-auto'>
                     <div>
                         <div className='flex justify-end px-3 lg:hidden'>
                             <div className='flex gap-x-2 cursor-pointer'>
-                                <div className="h-8 w-8 shadow flex justify-center items-center rounded-full">
+                                <div onClick={()=>setLogin(!login)} className="h-8 w-8 hover:bg-gray-200 transition-all duration-300 ease-in-out shadow flex justify-center items-center rounded-full">
                                     <AiOutlineUser />
                                 </div>
-                                <div onClick={() => setIsOpen(!isOpen)} className="h-8 w-8 shadow flex justify-center items-center rounded-full relative">
+                                <div onClick={() => setIsOpen(!isOpen)} className="h-8 w-8 hover:bg-gray-500 duration-300 ease-in-out shadow flex justify-center items-center rounded-full relative">
                                     <AiFillShopping />
                                     <div className='absolute -top-2 right-0 w-4 h-4 bg-red-500 flex justify-center items-center rounded-full'>
                                         <p className='text-white text-sm'>{itemAmount}</p>
@@ -66,7 +72,7 @@ const Navigation = () => {
                                 )
                             })}
                             <div className='flex gap-x-2 cursor-pointer'>
-                                <div className="h-12 w-12 shadow flex justify-center items-center rounded-full">
+                                <div onClick={()=>setLogin(!login)} className="h-12 w-12 shadow  hover:bg-gray-200 transition-all duration-300 ease-in-out flex justify-center items-center rounded-full">
                                     <AiOutlineUser />
                                 </div>
                                 <div onClick={() => setIsOpen(!isOpen)} className="h-12 w-12 shadow flex justify-center items-center rounded-full relative">
@@ -84,6 +90,17 @@ const Navigation = () => {
                     <div className={`${mobile ? "left-0" : "-left-full"} fixed z-10 h-full bg-white shadow-2xl top-0 w-[50%] space-y-10 lg:hidden transition-all duration-300`}>
                         <MobileNav />
                     </div>
+                </div>
+            </div>
+
+            {/* for page user */}
+            <div className={`${login ? 'w-full' : '-top-full'} flex justify-center h-full w-full bg-black/25 z-10 fixed`}>
+                <div className={`${login ? 'top-20' : '-top-full'} w-[80%] sm:w-[60%] md:w-[50%] lg:w-[30%] h-[500px] bg-white shadow-xl rounded-lg z-10 fixed   flex transition-all duration-500 ease-in-out`}>
+                    <div>
+                        
+                    </div>
+
+                    <button onClick={()=>setLogin()}>Close</button>
                 </div>
             </div>
 

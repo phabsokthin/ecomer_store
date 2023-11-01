@@ -20,7 +20,7 @@ const SidebarCart = () => {
     return (
         <>
             <div className={`${isOpen ? "w-full" : "-right-full"} font-monster bg-black/30 w-full h-full fixed z-10 top-0 transition-all duration-500 ease-in-out`}>
-                <div className={`${isOpen ? "right-0" : "-right-full"} w-full h-full fixed z-50 top-0 bg-white md:w-[45%] lg:w-[30%] xl:w-[25%] shadow-xl transition-all duration-300 ease-in-out`}>
+                <div className={`${isOpen ? "right-0" : "-right-full"} w-full h-full fixed z-50 top-0 bg-white md:w-[50%] lg:w-[30%] xl:w-[25%] shadow-xl transition-all duration-300 ease-in-out`}>
                     <div className='bg-blue-500 py-5 p-5 flex justify-between items-center text-white'>
                         <p>MY CART IS ({itemAmount})</p>
                         <div onClick={() => handleClose()} className='cursor-pointer hover:text-red-500 transition-all duration-300 ease-in-out'>

@@ -9,8 +9,6 @@ import toast from 'react-hot-toast';
 
 const notify = () => toast.success('Add to cart!')
 
-
-
 const CardItem = ({ product }) => {
 
 

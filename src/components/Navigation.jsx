@@ -6,6 +6,7 @@ import MobileNav from './MobileNav'
 import Slider from './Slider'
 import { SideBarContext } from './contexts/SidebarContext'
 import { CartContext } from './contexts/CartContext'
+import logins from './SlideCard/undraw_Metrics_re_6g90.png'
 
 
 const Navigation = () => {
@@ -47,7 +48,7 @@ const Navigation = () => {
                     <div>
                         <div className='flex justify-end px-3 lg:hidden'>
                             <div className='flex gap-x-2 cursor-pointer'>
-                                <div onClick={()=>setLogin(!login)} className="h-8 w-8 hover:bg-gray-200 transition-all duration-300 ease-in-out shadow flex justify-center items-center rounded-full">
+                                <div onClick={() => setLogin(!login)} className="h-8 w-8 hover:bg-gray-200 transition-all duration-300 ease-in-out shadow flex justify-center items-center rounded-full">
                                     <AiOutlineUser />
                                 </div>
                                 <div onClick={() => setIsOpen(!isOpen)} className="h-8 w-8 hover:bg-gray-500 duration-300 ease-in-out shadow flex justify-center items-center rounded-full relative">
@@ -72,7 +73,7 @@ const Navigation = () => {
                                 )
                             })}
                             <div className='flex gap-x-2 cursor-pointer'>
-                                <div onClick={()=>setLogin(!login)} className="h-12 w-12 shadow  hover:bg-gray-200 transition-all duration-300 ease-in-out flex justify-center items-center rounded-full">
+                                <div onClick={() => setLogin(!login)} className="h-12 w-12 shadow  hover:bg-gray-200 transition-all duration-300 ease-in-out flex justify-center items-center rounded-full">
                                     <AiOutlineUser />
                                 </div>
                                 <div onClick={() => setIsOpen(!isOpen)} className="h-12 w-12 shadow flex justify-center items-center rounded-full relative">
@@ -95,12 +96,37 @@ const Navigation = () => {
 
             {/* for page user */}
             <div className={`${login ? 'w-full' : '-top-full'} flex justify-center h-full w-full bg-black/25 z-10 fixed`}>
-                <div className={`${login ? 'top-20' : '-top-full'} w-[80%] sm:w-[60%] md:w-[50%] lg:w-[30%] h-[500px] bg-white shadow-xl rounded-lg z-10 fixed   flex transition-all duration-500 ease-in-out`}>
-                    <div>
-                        
+                <div className={`${login ? 'top-20' : '-top-full'} w-[80%] sm:w-[60%] md:w-[50%]  lg:w-[30%] h-[550px] bg-white shadow-xl rounded-lg z-10 fixed   flex transition-all duration-500 ease-in-out`}>
+                    <div className='w-full h-full  justify-center items-center'>
+                        <div className='flex justify-center items-center mt-5'>
+                            <img src={logins} className='w-[250px]' alt="" />
+                        </div>
+                        <div className='p-10 mt-[0%]'>
+                        <form>
+                            <div class="mb-6">
+                                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username</label>
+                                <input type="email" id="email" class=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Username" required/>
+                            </div>
+                            <div class="mb-6 ">
+                                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                                <input type="email" id="email" class=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Password" required/>
+                            </div>
+                      
+                            <div class="flex items-start mb-6">
+                                <div class="flex items-center h-5">
+                                    <input id="remember" type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" required/>
+                                </div>
+                                <label for="remember" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember me</label>
+                            </div>
+                           <div className='space-x-3 w-full flex '>
+                           <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+                            <button onClick={() => setLogin()}  class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-blue-700 dark:focus:ring-red-800">Close</button>
+                           </div>
+                        </form>
+                        </div>
                     </div>
 
-                    <button onClick={()=>setLogin()}>Close</button>
+                   
                 </div>
             </div>
 

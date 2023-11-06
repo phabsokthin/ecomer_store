@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { HiOutlineArrowLongLeft, HiArrowLongRight } from 'react-icons/hi2'
 import { BsShopWindow } from 'react-icons/bs'
 import { BiHeadphone } from 'react-icons/bi'
-import {FaChevronRight, FaChevronLeft} from 'react-icons/fa'
+import { FaChevronRight, FaChevronLeft } from 'react-icons/fa'
 
 // Import Swiper styles
 import 'swiper/css';
@@ -27,6 +27,7 @@ import Category3 from './top/category-3.png'
 import Electronic from './Electronic';
 import OneImage from './OneImage';
 import TvCart from './TvCart';
+import Footer from './Footer';
 
 
 const Slider = () => {
@@ -175,16 +176,39 @@ const Slider = () => {
                     </div>
                 </div>
 
-                <div className='my-10 text-2xl flex gap-x-2 font-bold'>
+
+            </div>
+
+            <section className='bg-green-700 mt-10 p-5'>
+                <div className="container mx-auto w-full">
+                   
+                    <div class="relative flex justify-center w-full%]">
+                        
+                        <div class="absolute left-[12%] left-16  inset-y-0 sm:left-[18%] flex md:left-[19%]  items-center xl:left-[18%] pl-3.5 pointer-events-none">
+                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
+                                <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z" />
+                                <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z" />
+                            </svg>
+                        </div>
+                        <input type="text" id="email-address-icon" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[50%] pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name12@gmail.com"/>
+                        <button type="submit" class="text-white ml-2 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-[] lg:w-[200px] sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+                    </div>
+
+                </div>
+            </section>
+
+            <div className="container mx-auto font-monster">
+
+            <div className='my-10 text-2xl flex gap-x-2 font-bold'>
                     <BiHeadphone className='text-3xl' />
                     <p>SPACIAL CATEGORY</p>
                 </div>
 
                 <Swiper
-                    autoplay={{ 
+                    autoplay={{
                         delay: 3000,
                         disableOnInteraction: false
-                     }}
+                    }}
                     spaceBetween={50}
                     slidesPerView={2}
                     navigation={{
@@ -194,24 +218,24 @@ const Slider = () => {
                     modules={[Navigation, Autoplay]}
                     breakpoints={{
                         640: {
-                          slidesPerView: 2,
-                          spaceBetween: 20,
+                            slidesPerView: 2,
+                            spaceBetween: 20,
                         },
                         768: {
-                          slidesPerView: 4,
-                          spaceBetween: 40,
+                            slidesPerView: 4,
+                            spaceBetween: 40,
                         },
                         1024: {
-                          slidesPerView: 5,
-                          spaceBetween: 50,
+                            slidesPerView: 5,
+                            spaceBetween: 50,
                         },
                         1220: {
                             slidesPerView: 6,
                             spaceBetween: 50,
-                          },
-                      }}
+                        },
+                    }}
 
-                      className='relative'
+                    className='relative'
                 >
                     <SwiperSlide>
 
@@ -224,9 +248,9 @@ const Slider = () => {
                     </SwiperSlide>
                     <SwiperSlide>
 
-                       {fetchOne1.map((tvItem) => {
-                            return <TvCart tvItem={tvItem} key={tvItem.id}/>
-                       })}
+                        {fetchOne1.map((tvItem) => {
+                            return <TvCart tvItem={tvItem} key={tvItem.id} />
+                        })}
 
                     </SwiperSlide>
                     <SwiperSlide>
@@ -292,19 +316,23 @@ const Slider = () => {
                         })}
 
                     </SwiperSlide>
-                    
+
 
 
                     <div className='button-prev-slide absolute top-[50%] flex justify-center items-center hover:bg-gray-200  rounded-full bg-white shadow h-8 text-sm cursor-pointer transtion-all duration-300 ease-in-out w-8 z-10'>
-                        <FaChevronLeft/>
+                        <FaChevronLeft />
                     </div>
                     <div className='button-next-slide absolute top-[50%] right-0 flex justify-center items-center hover:bg-gray-200  rounded-full bg-white shadow h-8 text-sm cursor-pointer transtion-all duration-300 ease-in-out w-8 z-10'>
-                        <FaChevronRight/>
+                        <FaChevronRight />
                     </div>
 
                 </Swiper>
-
             </div>
+
+           
+
+
+            <Footer/>
 
 
         </>
